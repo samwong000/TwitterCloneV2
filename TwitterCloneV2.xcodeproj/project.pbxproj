@@ -15,6 +15,7 @@
 		527A78651A3BA58900908F9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A78641A3BA58900908F9E /* Images.xcassets */; };
 		527A78681A3BA58900908F9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 527A78661A3BA58900908F9E /* LaunchScreen.xib */; };
 		527A78741A3BA58900908F9E /* TwitterCloneV2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A78731A3BA58900908F9E /* TwitterCloneV2Tests.m */; };
+		527A787F1A3BAA0000908F9E /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A787E1A3BAA0000908F9E /* NetworkController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		527A786D1A3BA58900908F9E /* TwitterCloneV2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterCloneV2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		527A78721A3BA58900908F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527A78731A3BA58900908F9E /* TwitterCloneV2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterCloneV2Tests.m; sourceTree = "<group>"; };
+		527A787D1A3BAA0000908F9E /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		527A787E1A3BAA0000908F9E /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				527A78641A3BA58900908F9E /* Images.xcassets */,
 				527A78661A3BA58900908F9E /* LaunchScreen.xib */,
 				527A785B1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld */,
+				527A787D1A3BAA0000908F9E /* NetworkController.h */,
+				527A787E1A3BAA0000908F9E /* NetworkController.m */,
 				527A78541A3BA58900908F9E /* Supporting Files */,
 			);
 			path = TwitterCloneV2;
@@ -226,6 +231,7 @@
 				527A785D1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld in Sources */,
 				527A78601A3BA58900908F9E /* ViewController.m in Sources */,
 				527A78571A3BA58900908F9E /* main.m in Sources */,
+				527A787F1A3BAA0000908F9E /* NetworkController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
