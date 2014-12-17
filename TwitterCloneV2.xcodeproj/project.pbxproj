@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52248CF21A3DE453000FC6F3 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 52248CF11A3DE453000FC6F3 /* Tweet.m */; };
+		52248CF51A3DE464000FC6F3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 52248CF41A3DE464000FC6F3 /* User.m */; };
+		52248CF71A3DF381000FC6F3 /* Tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = 52248CF61A3DF381000FC6F3 /* Tweet.json */; };
 		527A78571A3BA58900908F9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A78561A3BA58900908F9E /* main.m */; };
 		527A785A1A3BA58900908F9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A78591A3BA58900908F9E /* AppDelegate.m */; };
 		527A785D1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 527A785B1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld */; };
@@ -29,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52248CF01A3DE453000FC6F3 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		52248CF11A3DE453000FC6F3 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		52248CF31A3DE464000FC6F3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		52248CF41A3DE464000FC6F3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		52248CF61A3DF381000FC6F3 /* Tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweet.json; sourceTree = "<group>"; };
 		527A78511A3BA58900908F9E /* TwitterCloneV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterCloneV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527A78551A3BA58900908F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527A78561A3BA58900908F9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +73,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52248CED1A3DE3DE000FC6F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52248CF01A3DE453000FC6F3 /* Tweet.h */,
+				52248CF11A3DE453000FC6F3 /* Tweet.m */,
+				52248CF31A3DE464000FC6F3 /* User.h */,
+				52248CF41A3DE464000FC6F3 /* User.m */,
+				52248CF61A3DF381000FC6F3 /* Tweet.json */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		52248CEE1A3DE3E6000FC6F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		52248CEF1A3DE3EB000FC6F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				527A785E1A3BA58900908F9E /* ViewController.h */,
+				527A785F1A3BA58900908F9E /* ViewController.m */,
+				527A787D1A3BAA0000908F9E /* NetworkController.h */,
+				527A787E1A3BAA0000908F9E /* NetworkController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		527A78481A3BA58900908F9E = {
 			isa = PBXGroup;
 			children = (
@@ -88,14 +126,13 @@
 			children = (
 				527A78581A3BA58900908F9E /* AppDelegate.h */,
 				527A78591A3BA58900908F9E /* AppDelegate.m */,
-				527A785E1A3BA58900908F9E /* ViewController.h */,
-				527A785F1A3BA58900908F9E /* ViewController.m */,
+				52248CEF1A3DE3EB000FC6F3 /* Controller */,
+				52248CEE1A3DE3E6000FC6F3 /* View */,
+				52248CED1A3DE3DE000FC6F3 /* Model */,
 				527A78611A3BA58900908F9E /* Main.storyboard */,
 				527A78641A3BA58900908F9E /* Images.xcassets */,
 				527A78661A3BA58900908F9E /* LaunchScreen.xib */,
 				527A785B1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld */,
-				527A787D1A3BAA0000908F9E /* NetworkController.h */,
-				527A787E1A3BAA0000908F9E /* NetworkController.m */,
 				527A78541A3BA58900908F9E /* Supporting Files */,
 			);
 			path = TwitterCloneV2;
@@ -210,6 +247,7 @@
 				527A78631A3BA58900908F9E /* Main.storyboard in Resources */,
 				527A78681A3BA58900908F9E /* LaunchScreen.xib in Resources */,
 				527A78651A3BA58900908F9E /* Images.xcassets in Resources */,
+				52248CF71A3DF381000FC6F3 /* Tweet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				527A785A1A3BA58900908F9E /* AppDelegate.m in Sources */,
+				52248CF51A3DE464000FC6F3 /* User.m in Sources */,
 				527A785D1A3BA58900908F9E /* TwitterCloneV2.xcdatamodeld in Sources */,
 				527A78601A3BA58900908F9E /* ViewController.m in Sources */,
+				52248CF21A3DE453000FC6F3 /* Tweet.m in Sources */,
 				527A78571A3BA58900908F9E /* main.m in Sources */,
 				527A787F1A3BAA0000908F9E /* NetworkController.m in Sources */,
 			);
@@ -422,6 +462,7 @@
 				527A78791A3BA58900908F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		527A787A1A3BA58900908F9E /* Build configuration list for PBXNativeTarget "TwitterCloneV2Tests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +471,7 @@
 				527A787C1A3BA58900908F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

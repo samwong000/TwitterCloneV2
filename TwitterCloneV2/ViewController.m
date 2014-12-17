@@ -7,16 +7,29 @@
 //
 
 #import "ViewController.h"
+#import "Tweet.h"
+#import <Social/Social.h>
+#import "NetworkController.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic, strong) ACAccount *account;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TWEET_CELL"];
+    [_tableView setRowHeight: UITableViewAutomaticDimension];
+    [_tableView setEstimatedRowHeight:68.0];
+    
+    [[NetworkController sharedInstance] fetchHomeTimeLine:nil maxID:nil completionHandler:^(NSError *error, NSMutableArray *tweets) {
+        //
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
