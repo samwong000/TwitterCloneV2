@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, strong) ACAccountType *accountType;
 @property (nonatomic, strong) ACAccount *twitterAccount;
-
+@property (nonatomic, strong) ACAccountStore *accountStore;
 @end
 
 @implementation NetworkController
@@ -31,7 +31,8 @@
 }
 
 - (instancetype) init {
-    _accountType = [[ACAccountStore alloc] accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    _accountStore = [[ACAccountStore alloc] init];
+    _accountType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 //    _configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
 //    _session = [NSURLSession sessionWithConfiguration:_configuration];
     return self;
@@ -41,21 +42,24 @@
 }
 
 - (void) setup: (void(^) (NSString *errorString)) completionHandler {
-//    [_accountStore requestAccessToAccountsWithType];
-    [[ACAccountStore alloc] requestAccessToAccountsWithType:_accountType options:nil completion:^(BOOL granted, NSError *error) {
-        NSString *errorString;
-        if (error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-            errorString = error.localizedDescription;
-        } else {
-            errorString = @"Access to account not granted";
-        }
+    [_accountStore requestAccessToAccountsWithType:_accountType options:nil completion:^(BOOL granted, NSError *error) {
         
+        NSString *errorString;
+        
+        if (!granted) {
+            errorString = @"Access to account not granted";
+        } else {
+            if (error != nil) {
+                errorString = error.localizedDescription;
+            }
+        }
+        NSLog(@"%@", errorString);
+
         if (errorString == nil) {
             ACAccountStore *accountStore = [ACAccountStore new];
             NSArray *accountArray = [accountStore accountsWithAccountType:_accountType];
             
-            if (accountArray.count) {
+            if (accountArray.count == 0) {
                 errorString = @"No Twitter account configured";
             } else {
                 _twitterAccount = (ACAccount *)accountArray.firstObject;

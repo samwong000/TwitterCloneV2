@@ -1,6 +1,4 @@
-^{
-    i
-}//
+//
 //  ViewController.m
 //  TwitterCloneV2
 //
@@ -47,14 +45,37 @@ typedef NS_ENUM(NSInteger, HomeViewControllerMode) {
     [_refreshControl addTarget:self action: @selector(fetchNewHomeLine:) forControlEvents:UIControlEventValueChanged];
     [_tableView addSubview:_refreshControl];
     
-    // add icon to navigation bar
     
+    // fetch home time line
+    [[NetworkController sharedInstance]setup:^(NSString *errorString) {
+        if (errorString != nil) {
+            [self showErrorMessage:(errorString)];
+            return;
+        }
+        
+        [[NetworkController sharedInstance] fetchHomeTimeLine:nil maxID:nil completionHandler:^(NSError *error, NSMutableArray *tweets) {
+            if (error != nil) {
+                [self showErrorMessage:([error localizedDescription])];
+            } else {
+                if (tweets != nil) {
+                    _tweets = tweets;
+                    [_tableView reloadData];
+                }
+            }
+        }];
+    }];
     
-//    
-//    [[NetworkController sharedInstance] fetchHomeTimeLine:nil maxID:nil completionHandler:^(NSError *error, NSMutableArray *tweets) {
-//        //
-//    }];
-    
+}
+
+- (void)showErrorMessage:(NSString *) errorMessage {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error"
+                          message:errorMessage
+                          delegate:self
+                          cancelButtonTitle:@"Dismiss"
+                          otherButtonTitles:nil, nil
+                          ];  
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +84,21 @@ typedef NS_ENUM(NSInteger, HomeViewControllerMode) {
 }
 
 - (void)fetchNewHomeLine:(id *) sender {
+    Tweet *tweet = _tweets[0];
+    
+    [[NetworkController sharedInstance] fetchHomeTimeLine:tweet.tweetId maxID:nil completionHandler:^(NSError *error, NSMutableArray *tweets) {
+        if (!error) {
+            [self showErrorMessage:([error localizedDescription])];
+        } else {
+            if (!tweets) {
+                _tweets = tweets;
+                [_tableView reloadData];
+            }
+        }
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
